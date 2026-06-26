@@ -16,7 +16,7 @@
 
         /* Hero Header */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=1200') no-repeat center center/cover;
             color: white;
             padding: 100px 20px;
             text-align: center;
@@ -75,6 +75,43 @@
             transform: scale(1.02);
         }
 
+        /* Booking Form Styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        .submit-btn {
+            background-color: #8b0000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #a30000;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -93,22 +130,25 @@
     </header>
 
     <div class="container">
+        <!-- About Section -->
         <div class="section">
             <h2>Bringing Joy Through Music</h2>
             <p>Welcome! Matt is a passionate live musical performer specializing in interactive, high-energy entertainment for senior living communities, retirement facilities, and memory care centers throughout Orem and the Utah Valley. With a warm vocal style and live instrumentation, Matt focuses on creating a joyful, nostalgic atmosphere where residents are encouraged to clap, smile, and sing along to the soundtracks of their lives.</p>
             <p>Every performance is tailored to the unique needs of senior audiences, ensuring comfortable sound levels, high engagement, and a wonderful afternoon or evening of classic entertainment for your community's activities calendar.</p>
         </div>
 
+        <!-- Performance Gallery Section -->
         <div class="section">
             <h2>Performances & Highlights</h2>
             <p>A glimpse into live sets, interactive sing-alongs, and community events:</p>
             <div class="gallery-grid">
                 <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.48 PM (1).jpeg" alt="Matt performing live with acoustic guitar">
                 <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.48 PM.jpeg" alt="Matt with his Neil Diamond event poster">
-                <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.47 PM.jpeg" alt="Matt singing and playing archtop guitar">
+             <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.47 PM.jpeg" alt="Matt singing and playing archtop guitar">
             </div>
         </div>
 
+        <!-- Repertoire & Specialty Section -->
         <div class="section">
             <h2>The Music & Neil Diamond Tribute</h2>
             <p>Matt features an extensive repertoire of golden oldies and classic hits from the 1950s, 60s, and 70s. In particular, he specializes in a crowd-pleasing, authentic tribute to the timeless songs of <strong>Neil Diamond</strong>.</p>
@@ -119,27 +159,54 @@
             </ul>
         </div>
 
+        <!-- Bookings Section -->
         <div class="section">
             <h2>Book a Performance</h2>
             <p>Matt is currently booking weekday afternoon entertainment, monthly birthday celebrations, holiday events, and weekend socials for the 2026 calendar year. He provides all of his own professional sound and audio equipment, making setup fast and completely hassle-free for your facility staff.</p>
             
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-            
-            <p><strong>To check calendar availability, request pricing, or book Matt for your next community event, please get in touch:</strong></p>
-            <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-                <tr>
-                    <td style="padding: 8px 0; font-weight: bold; width: 100px;">📧 Email:</td>
-                    <td style="padding: 8px 0;"><a href="mailto:matt.music.orem@example.com" style="color: #e63946; text-decoration: none; font-weight: bold;">matt.music.orem@example.com</a></td>
-                </tr>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 25px;">
                 <tr>
                     <td style="padding: 8px 0; font-weight: bold;">📞 Phone:</td>
-                    <td style="padding: 8px 0;"><strong>(801) 555-0199</strong></td>
+                    <td style="padding: 8px 0;"><strong>(801) 671-3783</strong></td>
                 </tr>
                 <tr>
                     <td style="padding: 8px 0; font-weight: bold;">📍 Location:</td>
                     <td style="padding: 8px 0; color: #666;">Based in Orem, UT (Serving the entire Utah Valley)</td>
                 </tr>
             </table>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+
+            <!-- Live Booking Inquiry Form -->
+            <h3>Booking Inquiry Form</h3>
+            <form action="https://formspree.io/f/xrewqooa" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name / Activity Director:</label>
+                    <input type="text" name="Client Name" id="name" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="facility">Community / Facility Name:</label>
+                    <input type="text" name="Facility Name" id="facility" required placeholder="Senior Living Community Name">
+                </div>
+                <div class="form-group">
+                    <label for="event-type">Event Type:</label>
+                    <select name="Event Type" id="event-type">
+                        <option value="Weekday Afternoon Set">Weekday Afternoon Set</option>
+                        <option value="Monthly Birthday Celebration">Monthly Birthday Celebration</option>
+                        <option value="Holiday / Seasonal Event">Holiday / Seasonal Event</option>
+                        <option value="Weekend Social">Weekend Social</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Requested Date:</label>
+                    <input type="date" name="Requested Date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional details or specific song requests:</label>
+                    <textarea name="Notes" id="message" rows="4" placeholder="Tell us about your resident count or event theme..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Booking Request</button>
+            </form>
         </div>
     </div>
 
