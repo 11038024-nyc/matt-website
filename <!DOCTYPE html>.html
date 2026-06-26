@@ -1,90 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matt | Live Music Performer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt | Live Music Performer</title>
+    <style>
+        /* Base Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-    color: #333;
-}
+        /* Hero Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200') no-repeat center center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
 
-header {
-    background: #111;
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-}
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
 
-header h1 {
-    font-size: 48px;
-    margin: 0;
-}
+        header p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
 
-header p {
-    font-size: 18px;
-    color: #ccc;
-}
+        /* Main Content Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-section {
-    max-width: 900px;
-    margin: 20px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-}
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
 
-h2 {
-    color: #111;
-}
+        h2 {
+            border-bottom: 2px solid #111;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
 
-.highlight {
-    font-weight: bold;
-}
+        /* Photo Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-.button {
-    display: inline-block;
-    padding: 12px 20px;
-    background: black;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-</style>
+        .gallery-item {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <h1>Matt</h1>
-    <p>Live Music Performer for Elderly Audiences</p>
-</header>
+    <header>
+        <h1>MATT</h1>
+        <p>Live Music Performer & Multi-Instrumentalist</p>
+    </header>
 
-<section>
-    <h2>About Matt</h2>
-    <p>
-        Matt is a passionate live music performer who brings timeless songs to life.
-    </p>
-</section>
+    <div class="container">
+        <div class="section">
+            <h2>Bringing Joy Through Music</h2>
+            <p>Welcome! Matt is a passionate live musical performer specializing in interactive, high-energy entertainment for senior living communities, retirement facilities, and memory care centers throughout Orem and the Utah Valley. With a warm vocal style and live instrumentation, Matt focuses on creating a joyful, nostalgic atmosphere where residents are encouraged to clap, smile, and sing along to the soundtracks of their lives.</p>
+            <p>Every performance is tailored to the unique needs of senior audiences, ensuring comfortable sound levels, high engagement, and a wonderful afternoon or evening of classic entertainment for your community's activities calendar.</p>
+        </div>
 
-<section>
-    <h2>What Makes Him Special</h2>
-    <p>
-        Matt has a <span class="highlight">warm, expressive voice</span> that connects deeply with audiences.
-        He also wears an <span class="highlight">elegant artist-style suit</span> that makes every performance feel professional and special.
-    </p>
-</section>
+        <div class="section">
+            <h2>Performances & Highlights</h2>
+            <p>A glimpse into live sets, interactive sing-alongs, and community events:</p>
+            <div class="gallery-grid">
+                <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.48 PM (1).jpeg" alt="Matt performing live with acoustic guitar">
+                <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.48 PM.jpeg" alt="Matt with his Neil Diamond event poster">
+                <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.47 PM.jpeg" alt="Matt singing and playing archtop guitar">
+            </div>
+        </div>
 
-<section>
-    <h2>Booking</h2>
-    <p>Contact for performances and events.</p>
-    <a class="button" href="mailto:example@email.com">Contact</a>
-</section>
+        <div class="section">
+            <h2>The Music & Neil Diamond Tribute</h2>
+            <p>Matt features an extensive repertoire of golden oldies and classic hits from the 1950s, 60s, and 70s. In particular, he specializes in a crowd-pleasing, authentic tribute to the timeless songs of <strong>Neil Diamond</strong>.</p>
+            <ul style="padding-left: 20px; line-height: 1.8; margin-bottom: 20px;">
+                <li><strong>The Neil Diamond Setlist:</strong> Sing-along favorites including <em>"Sweet Caroline," "Forever in Blue Jeans," "Cracklin' Rosie," "Cherry, Cherry,"</em> and <em>"I'm a Believer."</em></li>
+                <li><strong>Golden Oldies:</strong> A rich selection of beloved country, pop, and rock classics that spark wonderful memories.</li>
+                <li><strong>Interactive Style:</strong> Matt connects directly with the audience between songs, sharing stories and spreading positive energy.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Book a Performance</h2>
+            <p>Matt is currently booking weekday afternoon entertainment, monthly birthday celebrations, holiday events, and weekend socials for the 2026 calendar year. He provides all of his own professional sound and audio equipment, making setup fast and completely hassle-free for your facility staff.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            
+            <p><strong>To check calendar availability, request pricing, or book Matt for your next community event, please get in touch:</strong></p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                <tr>
+                    <td style="padding: 8px 0; font-weight: bold; width: 100px;">📧 Email:</td>
+                    <td style="padding: 8px 0;"><a href="mailto:matt.music.orem@example.com" style="color: #e63946; text-decoration: none; font-weight: bold;">matt.music.orem@example.com</a></td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: bold;">📞 Phone:</td>
+                    <td style="padding: 8px 0;"><strong>(801) 555-0199</strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: bold;">📍 Location:</td>
+                    <td style="padding: 8px 0; color: #666;">Based in Orem, UT (Serving the entire Utah Valley)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Matt Music. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
