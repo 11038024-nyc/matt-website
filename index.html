@@ -19,7 +19,7 @@
             /* Uses contain so the entire poster stays fully visible without clipping edge text */
             background: url('WhatsApp%20Image%202026-07-06%20at%209.51.08%20AM.jpeg') no-repeat center center/contain;
             background-color: #831013; /* Matches the rich red poster backdrop */
-            height: 800px; 
+            height: 480px; 
             width: 100%;
             position: relative;
             box-shadow: inset 0 0 100px rgba(0,0,0,0.6);
@@ -145,7 +145,6 @@
             transition: background-color 0.2s;
         }
 
-
         .submit-btn:hover {
             background-color: #a30000;
         }
@@ -182,7 +181,7 @@
             <p>A glimpse into live sets, interactive sing-alongs, and community events:</p>
             <div class="gallery-grid">
                 <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.48 PM (1).jpeg" alt="Matt performing live with acoustic guitar">
-                <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.48 PM.jpeg" alt="Matt with his Neil Diamond event poster">  
+                <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.48 PM.jpeg" alt="Matt with his Neil Diamond event poster">
                 <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.47 PM.jpeg" alt="Matt singing and playing archtop guitar">
             </div>
         </div>
@@ -238,4 +237,17 @@
                     <input type="date" name="Requested Date" id="date" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Additional details
+                    <label for="message">Additional details or specific song requests:</label>
+                    <textarea name="Notes" id="message" rows="4" placeholder="Tell us about your resident count or event theme..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Booking Request</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Matt Music. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
