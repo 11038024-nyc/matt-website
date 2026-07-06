@@ -14,75 +14,42 @@
             line-height: 1.6;
         }
 
-        /* Hero Header Frame Optimization */
+        /* Hero Header Optimized for the Poster Graphic */
         header {
-            /* Uses contain so the entire poster stays fully visible without clipping edge text */
-            background: url('WhatsApp%20Image%202026-07-06%20at%209.51.08%20AM.jpeg') no-repeat center center/contain;
-            background-color: #831013; /* Matches the rich red poster backdrop */
-            height: 480px; 
-            width: 100%;
-            position: relative;
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.6);
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('WhatsApp Image 2026-07-06 at 9.51.08 AM.jpeg') no-repeat center center/cover;
+            color: white;
+            padding: 140px 20px;
+            text-align: center;
         }
 
-        /* Ambient Side Blur effect to seamlessly blend standard banner containers */
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('WhatsApp%20Image%202026-07-06%20at%209.51.08%20AM.jpeg') no-repeat center center/cover;
-            opacity: 0.15;
-            filter: blur(20px);
-            z-index: 1;
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        header p {
+            font-size: 1.4rem;
+            color: #fff;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+            margin-top: 10px;
+            font-weight: bold;
         }
 
         /* Main Content Container */
         .container {
             max-width: 800px;
-            margin: 0 auto 40px auto;
+            margin: 40px auto;
             padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Refined Intro Title Styling */
-        .intro-title {
-            text-align: center;
-            background: white;
-            padding: 35px 20px 25px 20px;
-            margin-top: -30px; /* Pulls header content into an overlapping card setup */
-            border-radius: 8px 8px 0 0;
-            box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
-        }
-        
-        .intro-title h1 {
-            font-size: 3.2rem;
-            margin: 0;
-            letter-spacing: 4px;
-            color: #111;
-            font-weight: 900;
-        }
-        
-        .intro-title p {
-            font-size: 1.25rem;
-            color: #8b0000;
-            margin: 8px 0 0 0;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
         }
 
         .section {
             background: white;
             padding: 30px;
-            border-radius: 0 0 8px 8px;
+            border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             margin-bottom: 30px;
-        }
-
-        /* Adjust subsequent section borders for card uniformity */
-        .section.standalone {
-            border-radius: 8px;
         }
 
         h2 {
@@ -161,22 +128,21 @@
 </head>
 <body>
 
-    <header></header>
+    <header>
+        <h1>MATT</h1>
+        <p>Live Music Performer & Multi-Instrumentalist</p>
+    </header>
 
     <div class="container">
-        
-        <div class="intro-title">
-            <h1>MATT</h1>
-            <p>Live Music Performer & Multi-Instrumentalist</p>
-        </div>
-
+        <!-- About Section -->
         <div class="section">
             <h2>Bringing Joy Through Music</h2>
             <p>Welcome! Matt is a passionate live musical performer specializing in interactive, high-energy entertainment for senior living communities, retirement facilities, and memory care centers throughout Orem and the Utah Valley. With a warm vocal style and live instrumentation, Matt focuses on creating a joyful, nostalgic atmosphere where residents are encouraged to clap, smile, and sing along to the soundtracks of their lives.</p>
             <p>Every performance is tailored to the unique needs of senior audiences, ensuring comfortable sound levels, high engagement, and a wonderful afternoon or evening of classic entertainment for your community's activities calendar.</p>
         </div>
 
-        <div class="section standalone">
+        <!-- Performance Gallery Section -->
+        <div class="section">
             <h2>Performances & Highlights</h2>
             <p>A glimpse into live sets, interactive sing-alongs, and community events:</p>
             <div class="gallery-grid">
@@ -186,7 +152,8 @@
             </div>
         </div>
 
-        <div class="section standalone">
+        <!-- Repertoire & Specialty Section -->
+        <div class="section">
             <h2>The Music & Neil Diamond Tribute</h2>
             <p>Matt features an extensive repertoire of golden oldies and classic hits from the 1950s, 60s, and 70s. In particular, he specializes in a crowd-pleasing, authentic tribute to the timeless songs of <strong>Neil Diamond</strong>.</p>
             <ul style="padding-left: 20px; line-height: 1.8; margin-bottom: 20px;">
@@ -196,7 +163,8 @@
             </ul>
         </div>
 
-        <div class="section standalone">
+        <!-- Bookings Section -->
+        <div class="section">
             <h2>Book a Performance</h2>
             <p>Matt is currently booking weekday afternoon entertainment, monthly birthday celebrations, holiday events, and weekend socials for the 2026 calendar year. He provides all of his own professional sound and audio equipment, making setup fast and completely hassle-free for your facility staff.</p>
             
@@ -213,6 +181,7 @@
 
             <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
 
+            <!-- Live Booking Inquiry Form -->
             <h3>Booking Inquiry Form</h3>
             <form action="https://formspree.io/f/xrewqooa" method="POST">
                 <div class="form-group">
