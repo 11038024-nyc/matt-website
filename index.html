@@ -4,14 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Book Matt for live golden oldies, Neil Diamond favorites, and interactive music at senior living communities throughout Utah Valley.">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#080705">
+    <link rel="canonical" href="https://11038024-nyc.github.io/matt-website/">
 
-    <meta property="og:title" content="Matt | Golden Hits Live">
+    <meta property="og:title" content="Matt Live Music | Golden Hits in Utah Valley">
     <meta property="og:description" content="Live music, familiar songs, and memorable moments for senior communities.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://11038024-nyc.github.io/matt-website/">
     <meta property="og:image" content="WhatsApp Image 2026-07-06 at 9.51.08 AM.jpeg">
 
-    <title>Matt | Golden Hits Live</title>
+    <title>Matt Live Music for Senior Communities | Utah Valley</title>
+
+    <script>
+        document.documentElement.classList.add("js");
+
+        if ("scrollRestoration" in history) {
+            history.scrollRestoration = "manual";
+        }
+
+        // Always begin a fresh visit at the opening video. Browsers can otherwise
+        // restore the last section the visitor viewed (for example, Photos).
+        if (window.location.hash) {
+            history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
+
+        window.scrollTo(0, 0);
+    </script>
 
     <style>
         :root {
@@ -150,7 +169,7 @@
             width: var(--page);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr minmax(310px, 420px);
+            grid-template-columns: minmax(320px, 470px) 1fr;
             align-items: center;
             gap: clamp(48px, 8vw, 110px);
         }
@@ -229,11 +248,15 @@
             color: var(--white);
         }
 
+        .video-feature {
+            width: min(100%, 470px);
+            justify-self: start;
+        }
+
         .video-card {
             position: relative;
             overflow: hidden;
-            width: min(100%, 360px);
-            justify-self: end;
+            width: 100%;
             border: 1px solid var(--line);
             border-radius: 26px;
             background: #000;
@@ -272,7 +295,7 @@
             position: absolute;
             z-index: 4;
             right: 14px;
-            bottom: 58px;
+            bottom: 70px;
             left: 14px;
             margin: 0;
             padding: 11px 13px;
@@ -284,19 +307,43 @@
             text-align: center;
         }
 
+        .video-tools {
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .video-sound,
         .video-skip {
-            position: absolute;
-            z-index: 2;
-            top: 14px;
-            right: 14px;
-            padding: 8px 12px;
-            border: 1px solid rgba(255, 255, 255, 0.24);
+            min-height: 48px;
+            padding: 10px 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line);
             border-radius: 999px;
-            background: rgba(0, 0, 0, 0.62);
-            color: #fff;
-            font-size: 0.75rem;
+            cursor: pointer;
+            font-size: 0.82rem;
             font-weight: 800;
-            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .video-sound {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .video-skip {
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+        }
+
+        .video-note {
+            margin: 10px 4px 0;
+            color: var(--muted);
+            font-size: 0.78rem;
+            text-align: center;
         }
 
         .brand-strip {
@@ -440,6 +487,25 @@
             background: rgba(255, 255, 255, 0.02);
             color: var(--gold-light);
             font-weight: 700;
+        }
+
+        .music-notes {
+            margin-top: 22px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .music-notes p {
+            margin: 0;
+            padding: 13px 15px;
+            border-left: 2px solid var(--gold);
+            background: rgba(255, 255, 255, 0.035);
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .music-notes strong {
+            color: var(--gold-light);
         }
 
         .music-photo {
@@ -655,6 +721,17 @@
             color: var(--gold-dark);
         }
 
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 650ms ease, transform 650ms ease;
+        }
+
+        .js .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 900px) {
             .hero-inner,
             .about-grid,
@@ -676,8 +753,8 @@
                 justify-content: center;
             }
 
-            .video-card {
-                width: min(100%, 340px);
+            .video-feature {
+                width: min(100%, 390px);
                 margin: 0 auto;
                 grid-row: 1;
             }
@@ -724,6 +801,10 @@
                 padding-top: 82px;
             }
 
+            .video-feature {
+                width: min(100%, 350px);
+            }
+
             h1 {
                 font-size: clamp(3.1rem, 15vw, 4.7rem);
             }
@@ -760,6 +841,10 @@
             .actions .button {
                 width: 100%;
             }
+
+            .video-tools {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -771,6 +856,11 @@
             *::before,
             *::after {
                 transition-duration: 0.01ms !important;
+            }
+
+            .js .reveal {
+                opacity: 1;
+                transform: none;
             }
         }
     </style>
@@ -793,41 +883,49 @@
     <main>
         <section class="hero" id="top">
             <div class="hero-inner">
+                <div class="video-feature">
+                    <div class="video-card">
+                        <video
+                            class="hero-video"
+                            id="heroVideo"
+                            autoplay
+                            muted
+                            playsinline
+                            controls
+                            preload="metadata"
+                            poster="WhatsApp Image 2026-06-26 at 3.16.47 PM.jpeg"
+                            title="Matt performing live music for senior community residents"
+                        >
+                            <source src="./Matt_Website_Full_HQ.mp4?v=6" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
+                        <button class="video-play" id="videoPlay" type="button">▶ Play full video</button>
+                        <p class="video-error" id="videoError" hidden>
+                            Video unavailable. Upload “Matt_Website_Full_HQ.mp4” beside index.html.
+                        </p>
+                    </div>
+
+                    <div class="video-tools" aria-label="Video options">
+                        <button class="video-sound" id="videoSound" type="button" aria-pressed="false">
+                            🔊 Turn sound on
+                        </button>
+                        <a class="video-skip" href="#about">Skip to information ↓</a>
+                    </div>
+                    <p class="video-note">Full 64-second performance video · Starts muted by browser requirement</p>
+                </div>
+
                 <div class="hero-copy">
                     <p class="eyebrow">Golden Hits · Live in Utah Valley</p>
                     <h1>Music that brings back <span>great memories.</span></h1>
                     <p>
-                        Matt performs golden oldies and Neil Diamond favorites for senior living communities,
-                        retirement facilities, and memory care centers.
+                        Matt brings timeless music to life through warm vocals, live guitar, and joyful
+                        performances created for senior living communities.
                     </p>
 
                     <div class="actions">
                         <a class="button button-gold" href="#booking">Book a performance</a>
                         <a class="button button-outline" href="#about">Learn more</a>
                     </div>
-                </div>
-
-                <div class="video-card">
-                    <video
-                        class="hero-video"
-                        id="heroVideo"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        controls
-                        preload="metadata"
-                        poster="WhatsApp Image 2026-06-26 at 3.16.47 PM.jpeg"
-                        title="Matt performing live music for senior community residents"
-                    >
-                        <source src="./Matt_Website_Video_GitHub.mp4?v=3" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
-                    <button class="video-play" id="videoPlay" type="button">▶ Play video</button>
-                    <a class="video-skip" href="#about">Skip video ↓</a>
-                    <p class="video-error" id="videoError" hidden>
-                        Video unavailable. Upload “Matt_Website_Video_GitHub.mp4” beside index.html.
-                    </p>
                 </div>
             </div>
         </section>
@@ -857,13 +955,16 @@
                     <p class="eyebrow">Bringing joy through music</p>
                     <h2 class="section-title">A familiar song can brighten the room.</h2>
                     <p>
-                        Matt is a passionate live performer and multi-instrumentalist specializing in
-                        interactive entertainment for senior living communities, retirement facilities,
-                        and memory care centers throughout Orem and Utah Valley.
+                        Welcome! Matt is a passionate live musical performer specializing in interactive,
+                        high-energy entertainment for senior living communities, retirement facilities,
+                        and memory care centers throughout Orem and the Utah Valley. With a warm vocal style
+                        and live instrumentation, Matt creates a joyful, nostalgic atmosphere where residents
+                        are encouraged to clap, smile, and sing along to the soundtracks of their lives.
                     </p>
                     <p>
-                        Every show is tailored for senior audiences with comfortable sound levels and
-                        friendly interaction that encourages residents to clap, smile, and sing along.
+                        Every performance is tailored to the unique needs of senior audiences, ensuring
+                        comfortable sound levels, high engagement, and a wonderful afternoon or evening of
+                        classic entertainment for your community’s activities calendar.
                     </p>
 
                     <ul class="about-points">
@@ -879,11 +980,11 @@
             <div class="section-inner music-grid">
                 <div class="music-copy">
                     <p class="eyebrow">The music</p>
-                    <h2 class="section-title">Golden oldies and Neil Diamond favorites.</h2>
+                    <h2 class="section-title">The music and Neil Diamond tribute.</h2>
                     <p>
-                        Matt’s set includes classic pop, country, and rock songs from the 1950s,
-                        60s, and 70s—music residents already know and love. Between songs, he connects
-                        directly with the audience and keeps the atmosphere positive and welcoming.
+                        Matt features an extensive repertoire of golden oldies and classic hits from the
+                        1950s, 60s, and 70s. In particular, he specializes in a crowd-pleasing, authentic
+                        tribute to the timeless songs of Neil Diamond.
                     </p>
 
                     <ul class="songs">
@@ -894,6 +995,17 @@
                         <li>I’m a Believer</li>
                         <li>More golden favorites</li>
                     </ul>
+
+                    <div class="music-notes">
+                        <p>
+                            <strong>Golden Oldies:</strong> A rich selection of beloved country, pop,
+                            and rock classics that spark wonderful memories.
+                        </p>
+                        <p>
+                            <strong>Interactive Style:</strong> Matt connects directly with the audience
+                            between songs, sharing stories and spreading positive energy.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="music-photo">
@@ -910,8 +1022,8 @@
             <div class="section-inner">
                 <div class="gallery-head">
                     <p class="eyebrow">Performance photos</p>
-                    <h2 class="section-title">Matt live.</h2>
-                    <p>Real performances, familiar music, and meaningful moments with the audience.</p>
+                    <h2 class="section-title">Performances and highlights.</h2>
+                    <p>A glimpse into live sets, interactive sing-alongs, and community events.</p>
                 </div>
 
                 <div class="gallery-grid">
@@ -952,14 +1064,15 @@
                     <h2 class="section-title">Bring Matt’s music to your community.</h2>
                     <p>
                         Matt is currently booking weekday afternoon entertainment, monthly birthday
-                        celebrations, holiday events, weekend socials, and community gatherings.
-                        He provides his own professional sound equipment for a fast, hassle-free setup.
+                        celebrations, holiday events, and weekend socials for the 2026 calendar year.
+                        He provides all of his own professional sound and audio equipment, making setup
+                        fast and completely hassle-free for your facility staff.
                     </p>
 
                     <div class="phone-box">
                         <small>Call Matt directly</small>
                         <a href="tel:+18016713783">(801)&nbsp;671&#8209;3783</a>
-                        <p>Based in Orem · Serving Utah Valley</p>
+                        <p>Based in Orem, UT · Serving the entire Utah Valley</p>
                     </div>
                 </div>
 
@@ -1033,6 +1146,7 @@
         const nav = document.getElementById("siteNav");
         const video = document.getElementById("heroVideo");
         const videoPlay = document.getElementById("videoPlay");
+        const videoSound = document.getElementById("videoSound");
         const videoError = document.getElementById("videoError");
 
         const updateNav = () => {
@@ -1042,10 +1156,17 @@
         updateNav();
         window.addEventListener("scroll", updateNav, { passive: true });
 
+        const updateSoundButton = () => {
+            const soundIsOn = !video.muted && video.volume > 0;
+            videoSound.textContent = soundIsOn ? "🔇 Mute video" : "🔊 Turn sound on";
+            videoSound.setAttribute("aria-pressed", String(soundIsOn));
+        };
+
         const startVideo = async (withSound = false) => {
             try {
                 videoError.hidden = true;
                 video.muted = !withSound;
+                updateSoundButton();
                 await video.play();
                 videoPlay.hidden = true;
             } catch (error) {
@@ -1057,16 +1178,34 @@
             startVideo(true);
         });
 
+        videoSound.addEventListener("click", async () => {
+            video.muted = !video.muted;
+            video.volume = 1;
+            updateSoundButton();
+
+            if (video.paused) {
+                try {
+                    await video.play();
+                    videoPlay.hidden = true;
+                } catch (error) {
+                    videoPlay.hidden = false;
+                }
+            }
+        });
+
+        video.addEventListener("volumechange", updateSoundButton);
+
         video.addEventListener("playing", () => {
             videoPlay.hidden = true;
             videoError.hidden = true;
         });
 
         video.addEventListener("pause", () => {
-            videoPlay.hidden = false;
+            videoPlay.hidden = video.ended;
         });
 
         video.addEventListener("loadedmetadata", () => {
+            video.currentTime = 0;
             startVideo(false);
         });
 
@@ -1078,6 +1217,49 @@
         window.addEventListener("load", () => {
             startVideo(false);
         });
+
+        const showOpeningVideo = () => {
+            if (window.location.hash) {
+                history.replaceState(null, "", window.location.pathname + window.location.search);
+            }
+
+            window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+            document.getElementById("top").scrollIntoView({
+                block: "start",
+                behavior: "auto"
+            });
+        };
+
+        // Run more than once because mobile browsers may restore the old scroll
+        // position after the page has already started loading.
+        document.addEventListener("DOMContentLoaded", showOpeningVideo);
+        window.addEventListener("pageshow", () => {
+            showOpeningVideo();
+            requestAnimationFrame(showOpeningVideo);
+            window.setTimeout(showOpeningVideo, 150);
+        });
+        window.addEventListener("load", showOpeningVideo);
+
+        const revealItems = document.querySelectorAll(
+            ".brand-strip, .content-section .section-inner"
+        );
+
+        revealItems.forEach((item) => item.classList.add("reveal"));
+
+        if ("IntersectionObserver" in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            revealItems.forEach((item) => revealObserver.observe(item));
+        } else {
+            revealItems.forEach((item) => item.classList.add("is-visible"));
+        }
 
         const localDate = new Date();
         const today = [
