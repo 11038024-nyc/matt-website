@@ -3,338 +3,967 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matt | Live Music Performer</title>
+    <meta name="description" content="Book Matt for live golden oldies, Neil Diamond favorites, and interactive music at senior living communities throughout Utah Valley.">
+    <meta name="theme-color" content="#080705">
+
+    <meta property="og:title" content="Matt | Golden Hits Live">
+    <meta property="og:description" content="Live music, familiar songs, and memorable moments for senior communities.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="WhatsApp Image 2026-07-06 at 9.51.08 AM.jpeg">
+
+    <title>Matt | Golden Hits Live</title>
 
     <style>
+        :root {
+            --black: #080705;
+            --black-soft: #11100d;
+            --panel: #17140f;
+            --gold: #d7b45f;
+            --gold-light: #f0d48d;
+            --gold-dark: #8f681e;
+            --white: #fffaf0;
+            --muted: #b9ad97;
+            --line: rgba(215, 180, 95, 0.22);
+            --ivory: #fbf8f1;
+            --ivory-deep: #f2ebdd;
+            --ink: #1c1914;
+            --muted-dark: #6c6355;
+            --line-light: rgba(41, 34, 24, 0.14);
+            --page: min(1120px, calc(100% - 40px));
+            --radius: 20px;
+        }
+
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
+            overflow-x: hidden;
+            background: var(--ivory);
+            color: var(--ink);
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        header {
-            background:
-                linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)),
-                url('WhatsApp Image 2026-07-06 at 9.51.08 AM.jpeg') no-repeat center center;
-            background-size: cover;
-            background-color: #000;
-            color: white;
-            min-height: 620px;
-            padding: 60px 20px;
-            text-align: center;
+        img,
+        video {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--gold-light);
+            outline-offset: 4px;
+        }
+
+        .site-nav {
+            position: fixed;
+            z-index: 20;
+            top: 0;
+            right: 0;
+            left: 0;
+            border-bottom: 1px solid transparent;
+            background: rgba(8, 7, 5, 0.84);
+            color: var(--white);
+            backdrop-filter: blur(14px);
+            transition: border-color 180ms ease;
+        }
+
+        .site-nav.scrolled {
+            border-color: var(--line);
+        }
+
+        .nav-inner {
+            width: var(--page);
+            min-height: 70px;
+            margin: 0 auto;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: space-between;
+            gap: 28px;
         }
 
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        .logo {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
         }
 
-        header p {
-            font-size: 1.4rem;
-            color: #fff;
-            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
-            margin-top: 10px;
-            font-weight: bold;
+        .logo span {
+            color: var(--gold);
         }
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            font-size: 0.9rem;
+            font-weight: 700;
         }
 
-        .section {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
+        .nav-links a:not(.book-small) {
+            color: var(--muted);
         }
 
-        h2 {
-            border-bottom: 2px solid #111;
-            padding-bottom: 10px;
-            margin-top: 0;
-            margin-bottom: 20px;
+        .nav-links a:hover {
+            color: var(--white);
         }
 
+        .book-small {
+            padding: 9px 16px;
+            border-radius: 999px;
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .hero {
+            min-height: 100svh;
+            padding: 112px 0 64px;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 82% 36%, rgba(215, 180, 95, 0.15), transparent 28%),
+                var(--black);
+            color: var(--white);
+        }
+
+        .hero-inner {
+            width: var(--page);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr minmax(310px, 420px);
+            align-items: center;
+            gap: clamp(48px, 8vw, 110px);
+        }
+
+        .eyebrow {
+            margin: 0 0 16px;
+            color: var(--gold);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3,
         p {
             margin-top: 0;
         }
 
+        h1 {
+            max-width: 680px;
+            margin-bottom: 24px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(3.4rem, 7vw, 6.8rem);
+            font-weight: 500;
+            letter-spacing: -0.055em;
+            line-height: 0.9;
+        }
+
+        h1 span {
+            color: var(--gold-light);
+        }
+
+        .hero-copy > p:not(.eyebrow) {
+            max-width: 590px;
+            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            min-height: 50px;
+            padding: 13px 21px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            font-weight: 800;
+            transition: transform 160ms ease, background-color 160ms ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-gold {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .button-gold:hover {
+            background: var(--gold-light);
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .video-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 26px;
+            background: #000;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+        }
+
+        .hero-video {
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            object-fit: cover;
+        }
+
+        .video-skip {
+            position: absolute;
+            z-index: 2;
+            top: 14px;
+            right: 14px;
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.62);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            backdrop-filter: blur(10px);
+        }
+
+        .brand-strip {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            background: #050403;
+        }
+
+        .brand-strip img {
+            width: 100%;
+            max-height: 440px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .content-section {
+            padding: clamp(78px, 10vw, 125px) 0;
+            background: var(--ivory);
+            color: var(--ink);
+        }
+
+        .section-inner {
+            width: var(--page);
+            margin: 0 auto;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.35rem, 5vw, 4.5rem);
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            align-items: center;
+            gap: clamp(40px, 7vw, 90px);
+        }
+
+        .about-photo {
+            overflow: hidden;
+            border: 1px solid var(--line-light);
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: 0 18px 55px rgba(49, 39, 25, 0.12);
+        }
+
+        .about-photo img {
+            width: 100%;
+            min-height: 480px;
+            object-fit: cover;
+        }
+
+        .about-copy > p:not(.eyebrow) {
+            color: var(--muted-dark);
+            font-size: 1.05rem;
+        }
+
+        .about-points {
+            margin: 28px 0 0;
+            padding: 0;
+            display: grid;
+            gap: 13px;
+            list-style: none;
+        }
+
+        .about-points li {
+            padding: 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            border-bottom: 1px solid var(--line-light);
+            font-weight: 700;
+        }
+
+        .about-points li::before {
+            color: var(--gold);
+            content: "●";
+            font-size: 0.55rem;
+        }
+
+        .music {
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            background: var(--black-soft);
+            color: var(--white);
+        }
+
+        .music-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: clamp(40px, 7vw, 90px);
+        }
+
+        .music-copy > p:not(.eyebrow) {
+            max-width: 620px;
+            color: var(--muted);
+        }
+
+        .songs {
+            margin: 30px 0 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .songs li {
+            padding: 13px 15px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+
+        .music-photo {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #000;
+        }
+
+        .music-photo img {
+            width: 100%;
+            max-height: 650px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .gallery-head {
+            max-width: 720px;
+            margin-bottom: 44px;
+        }
+
+        .gallery-head > p:not(.eyebrow) {
+            color: var(--muted-dark);
+        }
+
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
 
-        .gallery-item {
+        .gallery-grid figure {
+            margin: 0;
+            overflow: hidden;
+            border: 1px solid var(--line-light);
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: 0 14px 40px rgba(49, 39, 25, 0.09);
+        }
+
+        .gallery-grid img {
             width: 100%;
-            height: 320px;
+            height: 430px;
             object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-            transition: transform 0.2s;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.02);
+        .gallery-grid figcaption {
+            padding: 15px 17px;
+            color: var(--muted-dark);
+            font-size: 0.88rem;
+            font-weight: 700;
         }
 
-        ul {
-            padding-left: 20px;
-            line-height: 1.8;
-            margin-bottom: 20px;
+        .booking {
+            border-top: 1px solid var(--line-light);
+            background: var(--ivory-deep);
+            color: var(--ink);
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            align-items: start;
+            gap: clamp(45px, 7vw, 90px);
+        }
+
+        .booking-copy > p:not(.eyebrow) {
+            color: var(--muted-dark);
+        }
+
+        .phone-box {
+            margin-top: 28px;
+            padding: 22px;
+            border: 1px solid var(--line-light);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.65);
+        }
+
+        .phone-box small {
+            display: block;
+            color: var(--muted-dark);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .phone-box a {
+            display: inline-block;
+            margin-top: 5px;
+            color: var(--gold-dark);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+        }
+
+        .booking-form {
+            padding: clamp(25px, 4vw, 42px);
+            border: 1px solid var(--line-light);
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: 0 20px 60px rgba(49, 39, 25, 0.13);
+        }
+
+        .booking-form h3 {
             margin-bottom: 25px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.9rem;
+            font-weight: 500;
         }
 
-        td {
-            padding: 8px 0;
-        }
-
-        .label-cell {
-            font-weight: bold;
-            width: 140px;
-        }
-
-        .muted {
-            color: #666;
-        }
-
-        hr {
-            border: 0;
-            border-top: 1px solid #eee;
-            margin: 25px 0;
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 0.86rem;
+            font-weight: 800;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: inherit;
-            font-size: 1rem;
+            min-height: 49px;
+            padding: 11px 13px;
+            border: 1px solid rgba(41, 34, 24, 0.2);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--ink);
         }
 
-        .submit-btn {
-            background-color: #8b0000;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
+        .form-group textarea {
+            min-height: 115px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(215, 180, 95, 0.12);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #908676;
+        }
+
+        .form-group select option {
+            background: #fff;
+            color: var(--ink);
+        }
+
+        .form-group input[type="date"] {
+            color-scheme: light;
+        }
+
+        .submit {
             width: 100%;
-            transition: background-color 0.2s;
+            border: 0;
+            cursor: pointer;
         }
 
-        .submit-btn:hover {
-            background-color: #a30000;
+        .form-note {
+            margin: 12px 0 0;
+            color: var(--muted-dark);
+            font-size: 0.78rem;
+            text-align: center;
         }
 
         footer {
-            text-align: center;
-            padding: 20px;
-            background: #111;
-            color: #aaa;
-            font-size: 0.9rem;
+            padding: 30px 0;
+            border-top: 1px solid var(--line);
+            background: #050403;
+            color: var(--muted);
+            font-size: 0.84rem;
         }
 
-        @media (max-width: 768px) {
-            header {
-                background-size: contain;
-                background-position: top center;
-                min-height: 360px;
-                padding: 40px 15px 25px;
-                justify-content: flex-end;
-            }
+        .footer-inner {
+            width: var(--page);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-            header h1 {
-                font-size: 2.3rem;
-            }
+        .footer-logo {
+            color: var(--gold);
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+        }
 
-            header p {
-                font-size: 1rem;
-                line-height: 1.3;
-            }
+        #about .eyebrow,
+        #gallery .eyebrow,
+        #booking .eyebrow {
+            color: var(--gold-dark);
+        }
 
-            .container {
-                margin: 25px auto;
-                padding: 0 15px;
-            }
-
-            .section {
-                padding: 22px;
-            }
-
-            .gallery-grid {
+        @media (max-width: 900px) {
+            .hero-inner,
+            .about-grid,
+            .music-grid,
+            .booking-grid {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-item {
-                height: auto;
-                object-fit: contain;
+            .hero-copy {
+                text-align: center;
             }
 
-            table,
-            tbody,
-            tr,
-            td {
-                display: block;
-                width: 100%;
+            .hero-copy > p:not(.eyebrow) {
+                margin-right: auto;
+                margin-left: auto;
             }
 
-            .label-cell {
-                width: 100%;
-                padding-bottom: 0;
+            .actions {
+                justify-content: center;
+            }
+
+            .video-card {
+                width: min(100%, 410px);
+                margin: 0 auto;
+                grid-row: 1;
+            }
+
+            .hero-copy {
+                grid-row: 2;
+            }
+
+            .about-photo {
+                width: min(100%, 600px);
+            }
+
+            .music-photo {
+                width: min(100%, 560px);
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid figure:last-child {
+                grid-column: 1 / -1;
             }
         }
 
-        @media (max-width: 480px) {
-            header {
-                min-height: 310px;
+        @media (max-width: 680px) {
+            :root {
+                --page: min(100% - 28px, 580px);
             }
 
-            header h1 {
-                font-size: 2rem;
+            .nav-inner {
+                min-height: 64px;
             }
 
-            header p {
-                font-size: 0.95rem;
+            .nav-links a:not(.book-small) {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 82px;
+            }
+
+            h1 {
+                font-size: clamp(3.1rem, 15vw, 4.7rem);
+            }
+
+            .brand-strip img {
+                min-height: 210px;
+            }
+
+            .about-photo img {
+                min-height: 390px;
+            }
+
+            .songs,
+            .gallery-grid,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid figure:last-child {
+                grid-column: auto;
+            }
+
+            .gallery-grid img {
+                height: auto;
+                max-height: 560px;
+                object-fit: contain;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .actions .button {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 
 <body>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a class="logo" href="#top">MATT <span>MUSIC</span></a>
 
-    <header>
-        <h1>MATT</h1>
-        <p>Live Music Performer & Multi-Instrumentalist</p>
-    </header>
-
-    <div class="container">
-
-        <div class="section">
-            <h2>Bringing Joy Through Music</h2>
-            <p>Welcome! Matt is a passionate live musical performer specializing in interactive, high-energy entertainment for senior living communities, retirement facilities, and memory care centers throughout Orem and the Utah Valley. With a warm vocal style and live instrumentation, Matt focuses on creating a joyful, nostalgic atmosphere where residents are encouraged to clap, smile, and sing along to the soundtracks of their lives.</p>
-            <p>Every performance is tailored to the unique needs of senior audiences, ensuring comfortable sound levels, high engagement, and a wonderful afternoon or evening of classic entertainment for your community's activities calendar.</p>
-        </div>
-
-        <div class="section">
-            <h2>Performances & Highlights</h2>
-            <p>A glimpse into live sets, interactive sing-alongs, and community events:</p>
-
-            <div class="gallery-grid">
-                <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.48 PM (1).jpeg" alt="Matt performing live with acoustic guitar">
-                <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.48 PM.jpeg" alt="Matt with his Neil Diamond event poster">
-                <img class="gallery-item" src="WhatsApp Image 2026-06-26 at 3.16.47 PM.jpeg" alt="Matt singing and playing archtop guitar">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#music">Music</a>
+                <a href="#gallery">Photos</a>
+                <a class="book-small" href="#booking">Book Matt</a>
             </div>
         </div>
+    </nav>
 
-        <div class="section">
-            <h2>The Music & Neil Diamond Tribute</h2>
-            <p>Matt features an extensive repertoire of golden oldies and classic hits from the 1950s, 60s, and 70s. In particular, he specializes in a crowd-pleasing, authentic tribute to the timeless songs of <strong>Neil Diamond</strong>.</p>
+    <main>
+        <section class="hero" id="top">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="eyebrow">Golden Hits · Live in Utah Valley</p>
+                    <h1>Music that brings back <span>great memories.</span></h1>
+                    <p>
+                        Matt performs golden oldies and Neil Diamond favorites for senior living communities,
+                        retirement facilities, and memory care centers.
+                    </p>
 
-            <ul>
-                <li><strong>The Neil Diamond Setlist:</strong> Sing-along favorites including <em>"Sweet Caroline," "Forever in Blue Jeans," "Cracklin' Rosie," "Cherry, Cherry,"</em> and <em>"I'm a Believer."</em></li>
-                <li><strong>Golden Oldies:</strong> A rich selection of beloved country, pop, and rock classics that spark wonderful memories.</li>
-                <li><strong>Interactive Style:</strong> Matt connects directly with the audience between songs, sharing stories and spreading positive energy.</li>
-            </ul>
+                    <div class="actions">
+                        <a class="button button-gold" href="#booking">Book a performance</a>
+                        <a class="button button-outline" href="#about">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <video
+                        class="hero-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        controls
+                        preload="auto"
+                        poster="WhatsApp Image 2026-06-26 at 3.16.47 PM.jpeg"
+                        title="Matt performing live music for senior community residents"
+                    >
+                        <source src="Matt_Website_Video_GitHub.mp4" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                    <a class="video-skip" href="#about">Skip video ↓</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="brand-strip">
+            <img
+                src="WhatsApp Image 2026-07-06 at 9.51.08 AM.jpeg"
+                alt="Matt's Golden Hits by Neil Diamond promotional banner"
+            >
         </div>
 
-        <div class="section">
-            <h2>Book a Performance</h2>
-            <p>Matt is currently booking weekday afternoon entertainment, monthly birthday celebrations, holiday events, and weekend socials for the 2026 calendar year. He provides all of his own professional sound and audio equipment, making setup fast and completely hassle-free for your facility staff.</p>
-
-            <table>
-                <tr>
-                    <td class="label-cell">📞 Phone:</td>
-                    <td><strong>(801) 671-3783</strong></td>
-                </tr>
-                <tr>
-                    <td class="label-cell">📍 Location:</td>
-                    <td class="muted">Based in Orem, UT (Serving the entire Utah Valley)</td>
-                </tr>
-            </table>
-
-            <hr>
-
-            <h3>Booking Inquiry Form</h3>
-
-            <form action="https://formspree.io/f/xrewqooa" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name / Activity Director:</label>
-                    <input type="text" name="Client Name" id="name" required placeholder="Jane Doe">
+        <section class="content-section" id="about">
+            <div class="section-inner about-grid">
+                <div class="about-photo">
+                    <img
+                        src="WhatsApp Image 2026-06-26 at 3.16.48 PM (1).jpeg"
+                        alt="Matt performing live with his guitar"
+                        loading="lazy"
+                    >
                 </div>
 
-                <div class="form-group">
-                    <label for="facility">Community / Facility Name:</label>
-                    <input type="text" name="Facility Name" id="facility" required placeholder="Senior Living Community Name">
+                <div class="about-copy">
+                    <p class="eyebrow">Bringing joy through music</p>
+                    <h2 class="section-title">A familiar song can brighten the room.</h2>
+                    <p>
+                        Matt creates warm, engaging performances that encourage residents to sing along,
+                        clap, smile, and enjoy the music they remember.
+                    </p>
+                    <p>
+                        Every show is designed for senior audiences with comfortable sound levels,
+                        friendly interaction, and an easy setup for facility staff.
+                    </p>
+
+                    <ul class="about-points">
+                        <li>Live guitar and vocals</li>
+                        <li>Professional sound equipment included</li>
+                        <li>Serving senior communities throughout Utah Valley</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section music" id="music">
+            <div class="section-inner music-grid">
+                <div class="music-copy">
+                    <p class="eyebrow">The music</p>
+                    <h2 class="section-title">Golden oldies and Neil Diamond favorites.</h2>
+                    <p>
+                        Matt’s set includes classic pop, country, and rock songs from the 1950s,
+                        60s, and 70s—music residents already know and love.
+                    </p>
+
+                    <ul class="songs">
+                        <li>Sweet Caroline</li>
+                        <li>Cracklin’ Rosie</li>
+                        <li>Forever in Blue Jeans</li>
+                        <li>Cherry, Cherry</li>
+                        <li>I’m a Believer</li>
+                        <li>More golden favorites</li>
+                    </ul>
                 </div>
 
-                <div class="form-group">
-                    <label for="event-type">Event Type:</label>
-                    <select name="Event Type" id="event-type">
-                        <option value="Weekday Afternoon Set">Weekday Afternoon Set</option>
-                        <option value="Monthly Birthday Celebration">Monthly Birthday Celebration</option>
-                        <option value="Holiday / Seasonal Event">Holiday / Seasonal Event</option>
-                        <option value="Weekend Social">Weekend Social</option>
-                    </select>
+                <div class="music-photo">
+                    <img
+                        src="WhatsApp Image 2026-06-26 at 3.16.48 PM.jpeg"
+                        alt="Matt with his Golden Hits Neil Diamond poster"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="gallery">
+            <div class="section-inner">
+                <div class="gallery-head">
+                    <p class="eyebrow">Performance photos</p>
+                    <h2 class="section-title">Matt live.</h2>
+                    <p>Real performances, familiar music, and meaningful moments with the audience.</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="date">Requested Date:</label>
-                    <input type="date" name="Requested Date" id="date" required>
+                <div class="gallery-grid">
+                    <figure>
+                        <img
+                            src="WhatsApp Image 2026-06-26 at 3.16.48 PM (1).jpeg"
+                            alt="Matt performing live with guitar"
+                            loading="lazy"
+                        >
+                        <figcaption>Live guitar and vocals</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img
+                            src="WhatsApp Image 2026-06-26 at 3.16.48 PM.jpeg"
+                            alt="Matt beside his Golden Hits poster"
+                            loading="lazy"
+                        >
+                        <figcaption>Golden Hits by Neil Diamond</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img
+                            src="WhatsApp Image 2026-06-26 at 3.16.47 PM.jpeg"
+                            alt="Matt singing and playing his archtop guitar"
+                            loading="lazy"
+                        >
+                        <figcaption>Classic songs and warm memories</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section booking" id="booking">
+            <div class="section-inner booking-grid">
+                <div class="booking-copy">
+                    <p class="eyebrow">Book a performance</p>
+                    <h2 class="section-title">Bring Matt’s music to your community.</h2>
+                    <p>
+                        Available for afternoon entertainment, birthday celebrations, holiday events,
+                        weekend socials, and community gatherings.
+                    </p>
+
+                    <div class="phone-box">
+                        <small>Call Matt directly</small>
+                        <a href="tel:+18016713783">(801)&nbsp;671&#8209;3783</a>
+                        <p>Based in Orem · Serving Utah Valley</p>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="message">Additional details or specific song requests:</label>
-                    <textarea name="Notes" id="message" rows="4" placeholder="Tell us about your resident count or event theme..."></textarea>
-                </div>
+                <form class="booking-form" action="https://formspree.io/f/xrewqooa" method="POST">
+                    <h3>Request a performance</h3>
+                    <input type="hidden" name="_subject" value="New Matt Music booking request">
 
-                <button type="submit" class="submit-btn">Send Booking Request</button>
-            </form>
-        </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your name</label>
+                            <input type="text" name="Client Name" id="name" autocomplete="name" required placeholder="Jane Doe">
+                        </div>
 
-    </div>
+                        <div class="form-group">
+                            <label for="facility">Community or facility</label>
+                            <input type="text" name="Facility Name" id="facility" required placeholder="Community name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="Email" id="email" autocomplete="email" required placeholder="jane@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" name="Phone" id="phone" autocomplete="tel" placeholder="(801) 555-0123">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-type">Event type</label>
+                            <select name="Event Type" id="event-type">
+                                <option value="Weekday Afternoon Set">Weekday afternoon set</option>
+                                <option value="Monthly Birthday Celebration">Birthday celebration</option>
+                                <option value="Holiday / Seasonal Event">Holiday or seasonal event</option>
+                                <option value="Weekend Social">Weekend social</option>
+                                <option value="Other">Other event</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Requested date</label>
+                            <input type="date" name="Requested Date" id="date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Additional details</label>
+                        <textarea name="Notes" id="message" placeholder="Tell Matt about your event, preferred time, or song requests."></textarea>
+                    </div>
+
+                    <button class="button button-gold submit" type="submit">Send booking request</button>
+                    <p class="form-note">Matt will contact you to confirm availability and event details.</p>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Matt Music. All rights reserved.</p>
+        <div class="footer-inner">
+            <span class="footer-logo">MATT MUSIC</span>
+            <span>Live entertainment for senior communities throughout Utah Valley</span>
+            <span>&copy; <span id="year">2026</span> Matt Music</span>
+        </div>
     </footer>
 
+    <script>
+        const nav = document.getElementById("siteNav");
+
+        const updateNav = () => {
+            nav.classList.toggle("scrolled", window.scrollY > 10);
+        };
+
+        updateNav();
+        window.addEventListener("scroll", updateNav, { passive: true });
+
+        const localDate = new Date();
+        const today = [
+            localDate.getFullYear(),
+            String(localDate.getMonth() + 1).padStart(2, "0"),
+            String(localDate.getDate()).padStart(2, "0")
+        ].join("-");
+
+        document.getElementById("date").min = today;
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
